@@ -29,11 +29,15 @@ public class Auton {
         Robot.rightDriveMotor.setPID(0.7, 0.0, 0.0);
 	}
 
+	public void killPosLoop(){
+		
+	}
+	
 	public void autonThing(){
 		switch(Robot.caseInt){
 			case 0:
 				System.out.println("I got to case 0!");
-				auto.moveFwd(86.5);
+				auto.moveFwd(75);
 //				if((Robot.leftDriveMotor.getClosedLoopError() * -1) < 145){
 //					Robot.caseInt = 0;
 //					break;
@@ -77,12 +81,19 @@ public class Auton {
 				Timer.delay(0.01);
 				System.out.println(Robot.leftDriveMotor.getEncPosition() + " Position");
 				System.out.println((Robot.leftDriveMotor.getClosedLoopError() * -1) + " Error");
-				if ((Robot.leftDriveMotor.getClosedLoopError() * -1) > 190){
+				if((Robot.leftDriveMotor.getClosedLoopError() * -1) <= 15){
 					Robot.caseInt = 2;
+					break;
 				}
-				else {
-					Robot.caseInt = 3;
+				else{
+					if ((Robot.leftDriveMotor.getClosedLoopError() * -1) > 190){
+						Robot.caseInt = 2;
+					}
+					else {
+						Robot.caseInt = 3;
+					}
 				}
+
 				break;
 			case 3:
 				System.out.println("I got to case 3!");
@@ -96,18 +107,24 @@ public class Auton {
 				break;
 			case 4:
 				System.out.println("I got to case 4!");
-				auto.moveFwd(52.25);
+				auto.moveFwd(44);
 //				if((Robot.leftDriveMotor.getClosedLoopError() * -1) < 145){
 //					Robot.caseInt = 0;
 //					break;
 //				}
 				System.out.println(Robot.leftDriveMotor.getEncPosition() + " Position");
 				System.out.println((Robot.leftDriveMotor.getClosedLoopError() * -1) + " Error");
-				if ((Robot.leftDriveMotor.getClosedLoopError() * -1) > 145){
+				if((Robot.leftDriveMotor.getClosedLoopError() * -1) <= 15){
 					Robot.caseInt = 4;
+					break;
 				}
-				else {
-					Robot.caseInt = 5;
+				else{
+					if ((Robot.leftDriveMotor.getClosedLoopError() * -1) > 145){
+						Robot.caseInt = 4;
+					}
+					else {
+						Robot.caseInt = 5;
+					}
 				}
 				break;
 			case 5:
@@ -129,12 +146,19 @@ public class Auton {
 //				}
 				System.out.println((Robot.leftDriveMotor.getEncPosition() * -1) + " Position");
 				System.out.println((Robot.leftDriveMotor.getClosedLoopError() * 1) + " Error");
-				if ((Robot.leftDriveMotor.getClosedLoopError() * 1) < 190){
-					Robot.caseInt = 7;
-				}
-				else {
+				if((Robot.leftDriveMotor.getClosedLoopError() * 1) <= 15){
 					Robot.caseInt = 6;
+					break;
 				}
+				else{
+					if ((Robot.leftDriveMotor.getClosedLoopError() * 1) < 190){
+						Robot.caseInt = 7;
+					}
+					else {
+						Robot.caseInt = 6;
+					}
+				}
+
 				break;
 			case 7:
 				System.out.println("I got to case 7!");
@@ -156,12 +180,19 @@ public class Auton {
 //				}
 				System.out.println((Robot.leftDriveMotor.getEncPosition() * 1) + " Position");
 				System.out.println((Robot.leftDriveMotor.getClosedLoopError() * -1) + " Error");
-				if ((Robot.leftDriveMotor.getClosedLoopError() * -1) < 145){
-					Robot.caseInt = 9;
-				}
-				else {
+				if((Robot.leftDriveMotor.getClosedLoopError() * -1) <= 15){
 					Robot.caseInt = 8;
+					break;
 				}
+				else{
+					if ((Robot.leftDriveMotor.getClosedLoopError() * -1) < 145){
+						Robot.caseInt = 9;
+					}
+					else {
+						Robot.caseInt = 8;
+					}
+				}
+
 				break;
 			case 9:
 				System.out.println("I got to case 9!");
@@ -183,12 +214,19 @@ public class Auton {
 //				}
 				System.out.println(Robot.leftDriveMotor.getEncPosition() + " Position");
 				System.out.println((Robot.leftDriveMotor.getClosedLoopError() * 1) + " Error");
-				if ((Robot.leftDriveMotor.getClosedLoopError() * 1) > 185){
+				if((Robot.leftDriveMotor.getClosedLoopError() * 1) <= 15){
 					Robot.caseInt = 10;
+					break;
 				}
-				else {
-					Robot.caseInt = 11;
+				else{
+					if ((Robot.leftDriveMotor.getClosedLoopError() * 1) > 185){
+						Robot.caseInt = 10;
+					}
+					else {
+						Robot.caseInt = 11;
+					}
 				}
+				
 				break;
 			case 11:
 				System.out.println("I got to case 11!");
@@ -210,12 +248,19 @@ public class Auton {
 //				}
 				System.out.println(Robot.leftDriveMotor.getEncPosition() + " Position");
 				System.out.println((Robot.leftDriveMotor.getClosedLoopError() * -1) + " Error");
-				if ((Robot.leftDriveMotor.getClosedLoopError() * -1) > 145){
+				if((Robot.leftDriveMotor.getClosedLoopError() * -1) <= 15){
 					Robot.caseInt = 12;
+					break;
 				}
-				else {
-					Robot.caseInt = 13;
+				else{
+					if ((Robot.leftDriveMotor.getClosedLoopError() * -1) > 145){
+						Robot.caseInt = 12;
+					}
+					else {
+						Robot.caseInt = 13;
+					}
 				}
+				
 				break;
 			case 13:
 				System.out.println("I got to case 13!");
