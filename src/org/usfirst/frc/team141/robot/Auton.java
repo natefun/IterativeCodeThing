@@ -25,8 +25,8 @@ public class Auton {
         Robot.leftDriveMotor.enableBrakeMode(true);
         Robot.rightDriveMotor.enableBrakeMode(true);
         
-        Robot.leftDriveMotor.setPID(0.4, 0.0, 0.0);
-        Robot.rightDriveMotor.setPID(0.4, 0.0, 0.0);
+        Robot.leftDriveMotor.setPID(0.7, 0.0, 0.0);
+        Robot.rightDriveMotor.setPID(0.7, 0.0, 0.0);
 	}
 
 	public void autonThing(){
@@ -34,14 +34,24 @@ public class Auton {
 			case 0:
 				System.out.println("I got to case 0!");
 				auto.moveFwd(86.5);
+//				if((Robot.leftDriveMotor.getClosedLoopError() * -1) < 145){
+//					Robot.caseInt = 0;
+//					break;
+//				}
 				//auto.rotateBot(90);
 				System.out.println(Robot.leftDriveMotor.getEncPosition() + " Position");
 				System.out.println((Robot.leftDriveMotor.getClosedLoopError() * -1) + " Error");
-				if ((Robot.leftDriveMotor.getClosedLoopError() * -1) > 145){
+				if((Robot.leftDriveMotor.getClosedLoopError() * -1) <= 15){
 					Robot.caseInt = 0;
+					break;
+				}
+				else{
+					if ((Robot.leftDriveMotor.getClosedLoopError() * -1) > 145){
+						Robot.caseInt = 0;
+						}
+					else {
+						Robot.caseInt = 1;
 					}
-				else {
-					Robot.caseInt = 1;
 				}
 				break;
 			
@@ -60,10 +70,14 @@ public class Auton {
 				System.out.println("I got to case 2!");
 				//auto.moveFwd(12);
 				auto.rotateBot(44.68);
+//				if((Robot.leftDriveMotor.getClosedLoopError() * -1) < 145){
+//					Robot.caseInt = 0;
+//					break;
+//				}
 				Timer.delay(0.01);
 				System.out.println(Robot.leftDriveMotor.getEncPosition() + " Position");
 				System.out.println((Robot.leftDriveMotor.getClosedLoopError() * -1) + " Error");
-				if ((Robot.leftDriveMotor.getClosedLoopError() * -1) > 145){
+				if ((Robot.leftDriveMotor.getClosedLoopError() * -1) > 190){
 					Robot.caseInt = 2;
 				}
 				else {
@@ -83,6 +97,10 @@ public class Auton {
 			case 4:
 				System.out.println("I got to case 4!");
 				auto.moveFwd(52.25);
+//				if((Robot.leftDriveMotor.getClosedLoopError() * -1) < 145){
+//					Robot.caseInt = 0;
+//					break;
+//				}
 				System.out.println(Robot.leftDriveMotor.getEncPosition() + " Position");
 				System.out.println((Robot.leftDriveMotor.getClosedLoopError() * -1) + " Error");
 				if ((Robot.leftDriveMotor.getClosedLoopError() * -1) > 145){
@@ -105,9 +123,13 @@ public class Auton {
 			case 6:
 				System.out.println("I got to case 6!");
 				auto.rotateBot(-51);
+//				if((Robot.leftDriveMotor.getClosedLoopError() * 1) < 145){
+//					Robot.caseInt = 0;
+//					break;
+//				}
 				System.out.println((Robot.leftDriveMotor.getEncPosition() * -1) + " Position");
 				System.out.println((Robot.leftDriveMotor.getClosedLoopError() * 1) + " Error");
-				if ((Robot.leftDriveMotor.getClosedLoopError() * 1) < 145){
+				if ((Robot.leftDriveMotor.getClosedLoopError() * 1) < 190){
 					Robot.caseInt = 7;
 				}
 				else {
@@ -128,6 +150,10 @@ public class Auton {
 				System.out.println("I got to case 8!");
 				auto.moveFwd(30.25);
 				Timer.delay(0.01);
+//				if((Robot.leftDriveMotor.getClosedLoopError() * -1) < 145){
+//					Robot.caseInt = 0;
+//					break;
+//				}
 				System.out.println((Robot.leftDriveMotor.getEncPosition() * 1) + " Position");
 				System.out.println((Robot.leftDriveMotor.getClosedLoopError() * -1) + " Error");
 				if ((Robot.leftDriveMotor.getClosedLoopError() * -1) < 145){
@@ -149,10 +175,15 @@ public class Auton {
 				break;
 			case 10:
 				System.out.println("I got to case 10!");
-				auto.rotateBot(90);
+				auto.rotateBot(-90);
+				Timer.delay(0.01);
+//				if((Robot.leftDriveMotor.getClosedLoopError() * 1) < 145){
+//					Robot.caseInt = 0;
+//					break;
+//				}
 				System.out.println(Robot.leftDriveMotor.getEncPosition() + " Position");
-				System.out.println((Robot.leftDriveMotor.getClosedLoopError() * -1) + " Error");
-				if ((Robot.leftDriveMotor.getClosedLoopError() * -1) > 145){
+				System.out.println((Robot.leftDriveMotor.getClosedLoopError() * 1) + " Error");
+				if ((Robot.leftDriveMotor.getClosedLoopError() * 1) > 185){
 					Robot.caseInt = 10;
 				}
 				else {
@@ -172,6 +203,11 @@ public class Auton {
 			case 12:
 				System.out.println("I got to case 12!");
 				auto.moveFwd(32);
+				Timer.delay(0.01);
+//				if((Robot.leftDriveMotor.getClosedLoopError() * -1) < 145){
+//					Robot.caseInt = 0;
+//					break;
+//				}
 				System.out.println(Robot.leftDriveMotor.getEncPosition() + " Position");
 				System.out.println((Robot.leftDriveMotor.getClosedLoopError() * -1) + " Error");
 				if ((Robot.leftDriveMotor.getClosedLoopError() * -1) > 145){
