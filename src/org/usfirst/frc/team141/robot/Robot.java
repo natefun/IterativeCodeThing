@@ -28,6 +28,7 @@ public class Robot extends IterativeRobot {
 	double rightStickY = 0;
 	
 	static int caseInt = 0;
+	static int caseTwo = 0;
 	
     public void robotInit() {
     	rightDriveMotor = new CANTalon(1); //new talon obj for left motor

@@ -272,6 +272,38 @@ public class Auton {
 //				System.out.println(Robot.leftDriveMotor.getEncPosition() + "pos after");
 				break;
 		}
+		switch(Robot.caseTwo){
+			case 0:
+				if (Robot.caseInt >= 0 && Robot.leftDriveMotor.getEncPosition() > convert.inchToEncoder(4)){
+					auto.fireSolenoid(0);
+					Robot.caseTwo = 1;
+					break;
+				}
+				else {
+					Robot.caseTwo = 0;
+					break;
+				}
+			case 1:
+				if (Robot.caseInt >= 1){
+					auto.fireSolenoid(1);
+					Robot.caseTwo = 2;
+					break;
+				}
+				else {
+					Robot.caseTwo = 1;
+					break;
+				}
+			case 2:
+				if (Robot.caseInt >= 9){
+					auto.fireSolenoid(2);
+					Robot.caseTwo = 3;
+					break;
+				}
+				else {
+					Robot.caseTwo = 2;
+					break;
+				}
+		}
 
 	}
 	
